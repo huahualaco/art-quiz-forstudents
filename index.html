@@ -1,0 +1,266 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>藝術鑑賞刷題神器</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* 版面：手機優先的單欄介紹頁，英雄區大螢幕時左文右機；全頁只導向一件事：加入 Skool 社群 */
+:root {
+  --bg: #FBF3E6; --surface: #FFFDF8; --ink: #4A3328; --muted: #7C6253; --line: #EBDAC3;
+  --accent: #E2574A; --accent-deep: #B93E31; --accent-ink: #FFFFFF; --soft: #FCE3DD; --butter: #F8E3A8;
+  --f-display: "LXGW WenKai TC", "Kaiti TC", "STKaiti", "PingFang TC", serif;
+  --f-body: "Noto Sans TC", "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #2B201A; --surface: #38291F; --ink: #F6E9DA; --muted: #CDB5A0; --line: #523E31;
+  --accent: #F27B6C; --accent-deep: #FFB4A8; --accent-ink: #2B201A; --soft: #4A3028; --butter: #6B5524; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #2B201A; --surface: #38291F; --ink: #F6E9DA; --muted: #CDB5A0; --line: #523E31;
+  --accent: #F27B6C; --accent-deep: #FFB4A8; --accent-ink: #2B201A; --soft: #4A3028; --butter: #6B5524; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.75;
+  background-image: radial-gradient(circle, var(--line) 1px, transparent 1.2px); background-size: 22px 22px;
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+.wrap { width: 100%; max-width: 760px; margin: 0 auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+.disp { font-family: var(--f-display); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 12px 26px; border-radius: 18px;
+  background: var(--accent); color: var(--accent-ink); border: 2px solid var(--accent-deep); box-shadow: 0 4px 0 var(--accent-deep);
+  font-weight: 700; font-size: 1.1rem; text-decoration: none; text-align: center; }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--accent-deep); }
+.btn.ghost { background: var(--surface); color: var(--accent-deep); border-color: var(--accent); box-shadow: 0 4px 0 var(--line); }
+a:focus-visible, summary:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; }
+
+/* 頂端 */
+.top { display: flex; align-items: center; gap: 12px; padding-block: 18px 6px; }
+.top img { width: 44px; height: 44px; border-radius: 50%; box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--line); }
+.top b { display: block; line-height: 1.3; }
+.top span { font-size: .85rem; color: var(--muted); }
+
+/* 英雄區 */
+.hero { display: grid; gap: 28px; padding-block: 18px 36px; align-items: center; }
+.eyebrow { font-weight: 700; color: var(--accent-deep); letter-spacing: .1em; font-size: .95rem; }
+h1 { font-family: var(--f-display); font-size: clamp(2.3rem, 9vw, 3.4rem); line-height: 1.15; margin-top: 6px; }
+.lead { margin-top: 14px; font-size: 1.12rem; color: var(--muted); }
+.lead b { color: var(--ink); }
+.cta-block { margin-top: 24px; display: grid; gap: 10px; justify-items: start; }
+.cta-note { font-size: .95rem; color: var(--muted); }
+.stage { position: relative; display: grid; place-items: center; padding-block: 8px; }
+.phone { width: min(230px, 62vw); border: 7px solid #3B2B22; border-radius: 34px; overflow: hidden; background: #fff; box-shadow: 0 14px 28px rgba(60,40,28,.25); transform: rotate(2.5deg); }
+.phone img { display: block; width: 100%; height: auto; }
+.mascot { position: absolute; left: max(0px, calc(50% - 190px)); bottom: 0; width: 96px; height: 96px; }
+.mascot svg { width: 100%; height: 100%; }
+
+/* 區塊 */
+section { padding-block: 30px; }
+h2 { font-family: var(--f-display); font-size: clamp(1.55rem, 5.5vw, 2rem); line-height: 1.3; color: var(--accent-deep); }
+.sec-lead { margin-top: 8px; color: var(--muted); }
+.grid { margin-top: 18px; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card { background: var(--surface); border: 2px solid var(--line); border-radius: 20px; padding: 16px 16px 18px; box-shadow: 0 4px 0 var(--line); }
+.card h3 { font-size: 1.05rem; color: var(--accent-deep); line-height: 1.4; }
+.card p { margin-top: 4px; font-size: .95rem; line-height: 1.65; }
+
+/* 畫面預覽 */
+.shots { margin-top: 18px; display: flex; gap: 18px; overflow-x: auto; padding: 8px 4px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.shots figure { flex: 0 0 min(200px, 56vw); scroll-snap-align: center; text-align: center; }
+.shots .phone { width: 100%; transform: none; border-width: 6px; border-radius: 28px; box-shadow: 0 10px 20px rgba(60,40,28,.2); }
+.shots figcaption { margin-top: 10px; font-weight: 700; font-size: .95rem; }
+
+/* 依據 */
+.basis { background: var(--surface); border: 2px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: 0 4px 0 var(--line); }
+.basis p { margin-top: 10px; }
+.basis ul { margin-top: 12px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.basis li { background: var(--soft); color: var(--accent-deep); font-weight: 700; font-size: .92rem; padding: 4px 14px; border-radius: 99px; }
+
+/* 步驟 */
+.steps { margin-top: 18px; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: s; }
+.steps li { counter-increment: s; background: var(--soft); border-radius: 20px; padding: 16px 18px 16px 64px; position: relative; }
+.steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-weight: 700; }
+.steps b { display: block; font-size: 1.05rem; }
+.steps span { color: var(--muted); font-size: .95rem; }
+
+/* 老師 */
+.teacher { background: var(--surface); border: 2px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: 0 4px 0 var(--line); display: grid; gap: 14px; }
+.teacher h3 { font-family: var(--f-display); font-size: 1.5rem; }
+.teacher ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.teacher li { padding-left: 20px; position: relative; }
+.teacher li::before { content: ""; position: absolute; left: 0; top: .72em; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.teacher .btn { justify-self: start; min-height: 48px; font-size: 1rem; }
+
+/* FAQ */
+details { background: var(--surface); border: 2px solid var(--line); border-radius: 18px; padding: 14px 18px; }
+details + details { margin-top: 10px; }
+summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "＋"; color: var(--accent-deep); flex: none; }
+details[open] summary::after { content: "－"; }
+details p { margin-top: 8px; color: var(--muted); font-size: .98rem; }
+.faq { margin-top: 18px; }
+
+/* 結尾 */
+.final { text-align: center; background: var(--soft); border: 2px dashed var(--accent); border-radius: 28px; padding: 32px 20px; display: grid; gap: 14px; justify-items: center; }
+.final h2 { color: var(--ink); }
+.final p { color: var(--muted); }
+footer { padding-block: 26px 12px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
+footer p + p { margin-top: 6px; }
+
+/* 固定的底部按鈕 */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--bg); border-top: 2px solid var(--line);
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.dock .btn { display: flex; width: 100%; max-width: 560px; margin: 0 auto; min-height: 52px; }
+
+@media (min-width: 720px) {
+  .hero { grid-template-columns: 1.15fr .85fr; gap: 36px; }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .teacher { grid-template-columns: 1fr 1.4fr; align-items: start; gap: 24px; }
+}
+@media (max-width: 400px) { .grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <img src="img/logo.png" alt="藝起forward 標誌">
+    <div><b>藝起forward</b><span>美術家教　采穎lala老師</span></div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow">大學術科考試　藝術鑑賞</p>
+      <h1>藝術鑑賞刷題神器</h1>
+      <p class="lead"><b>手機就能刷。</b>10 回模擬考，每回 50 題，看圖題附作品圖與出處，每題答完馬上看詳解。</p>
+      <div class="cta-block">
+        <a class="btn" href="https://www.skool.com/forward-6871/about" target="_blank" rel="noopener">免費加入 Skool 社群</a>
+        <p class="cta-note">加入後，在社群裡找老師拿刷題網站的連結。</p>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone"><img src="img/shot2.jpg" alt="看圖題畫面：一幅畫作加上四個選項"></div>
+      <div class="mascot" id="cat" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>你會得到什麼</h2>
+    <div class="grid">
+      <div class="card"><h3>10 回模擬考</h3><p>每回 50 題，照考試的樣子練，不限次數。</p></div>
+      <div class="card"><h3>看圖題有出處</h3><p>附作品圖，詳解標明作者、年代、典藏處與圖片來源。</p></div>
+      <div class="card"><h3>每題都有詳解</h3><p>答錯當下就知道為什麼，不用另外查。</p></div>
+      <div class="card"><h3>考前筆記</h3><p>西洋、中國、臺灣美術史與當代時事，整理成時間軸與對照表。</p></div>
+      <div class="card"><h3>8 題隨機刷</h3><p>通勤、等車的零碎時間，抽 8 題就能練一輪。</p></div>
+      <div class="card"><h3>手機就能用</h3><p>瀏覽器打開就好，不用下載 App。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>看看刷題的樣子</h2>
+    <p class="sec-lead">左右滑動，看三個畫面。</p>
+    <div class="shots" tabindex="0" aria-label="刷題畫面預覽，可左右滑動">
+      <figure><div class="phone"><img src="img/shot1.jpg" alt="首頁畫面：模擬考列表"></div><figcaption>10 回模擬考</figcaption></figure>
+      <figure><div class="phone"><img src="img/shot4.jpg" alt="答題後的詳解與參考資料"></div><figcaption>答完看詳解與出處</figcaption></figure>
+      <figure><div class="phone"><img src="img/shot3.jpg" alt="成績頁與答錯題目列表"></div><figcaption>成績與答錯的題</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="basis">
+      <h2>這份題庫的依據</h2>
+      <p>題目參考 115 學年大學術科「美術鑑賞」考題分析、教學講義與美術史教材，由老師編輯整理成 10 回模擬考。</p>
+      <ul><li>115 學年考題分析</li><li>教學講義</li><li>美術史教材</li><li>近兩年臺灣藝文時事</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>怎麼拿到刷題連結</h2>
+    <ol class="steps">
+      <li><b>加入 Skool 社群</b><span>按下方按鈕，用手機或電腦加入。</span></li>
+      <li><b>在社群裡找老師拿連結</b><span>刷題網站的連結，在社群裡取得。</span></li>
+      <li><b>手機打開，開始刷題</b><span>從第 01 回開始，做完先看詳解。</span></li>
+    </ol>
+    <p style="margin-top:20px"><a class="btn" href="https://www.skool.com/forward-6871/about" target="_blank" rel="noopener">免費加入 Skool 社群</a></p>
+  </section>
+
+  <section>
+    <div class="teacher">
+      <div>
+        <p class="eyebrow">出題與整理</p>
+        <h3>采穎lala老師</h3>
+      </div>
+      <div style="display:grid;gap:14px">
+        <ul>
+          <li>大學術科考試全科頂標</li>
+          <li>臺灣師大美術系畢業</li>
+          <li>成大創意產業設計研究生</li>
+          <li>取得國高中美術教師證＋雙語教學專長</li>
+          <li>台南東區實體教學，也可線上一對一</li>
+        </ul>
+        <a class="btn ghost" href="https://www.instagram.com/wtylala/" target="_blank" rel="noopener">追蹤 IG @wtylala</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>常見問題</h2>
+    <div class="faq">
+      <details><summary>這是歷屆原題嗎？</summary><p>不是。這是參考考題分析編輯的練習題，目的是讓你熟悉考試的樣子、找出不熟的地方，不保證會考，也不保證成績。</p></details>
+      <details><summary>要付費嗎？</summary><p>加入 Skool 社群與使用刷題網站，目前都不用付費。</p></details>
+      <details><summary>可以用手機嗎？</summary><p>可以。用手機瀏覽器打開連結就能練，不用下載 App，電腦與平板也可以。</p></details>
+      <details><summary>成績會儲存嗎？</summary><p>不會。網站不收集也不儲存你的作答紀錄，需要的話請自己截圖或記下分數。</p></details>
+      <details><summary>發現題目或詳解有誤怎麼辦？</summary><p>歡迎在社群裡告訴老師，老師會再優化。</p></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="final">
+      <h2 class="disp">想要刷題連結嗎？</h2>
+      <p>加入社群，找老師拿。</p>
+      <a class="btn" href="https://www.skool.com/forward-6871/about" target="_blank" rel="noopener">免費加入 Skool 社群</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>題目與詳解由吳采穎編輯整理，部分內容以 AI 工具輔助，並由老師審閱。© 2026 吳采穎｜藝起forward，保留所有權利，請勿轉售或整份搬到其他地方。</p>
+    <p>作品圖片來自維基共享資源，依各自的授權使用，來源見詳解。</p>
+  </footer>
+</div>
+
+<div class="dock"><a class="btn" href="https://www.skool.com/forward-6871/about" target="_blank" rel="noopener">免費加入 Skool 社群</a></div>
+
+<script>
+/* ---------- 畫家貓貓（暫用圖，正式版可換成你的原創插畫） ---------- */
+function catSvg(mood) {
+  const eyes = mood === "oops"
+    ? `<path d="M40 64l9 5m0-5l-9 5" stroke="#4A3328" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M71 69l9-5m-9 0l9 5" stroke="#4A3328" stroke-width="3" stroke-linecap="round" fill="none"/>`
+    : `<path d="M39 68q7-9 14 0" stroke="#4A3328" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M67 68q7-9 14 0" stroke="#4A3328" stroke-width="3.2" stroke-linecap="round" fill="none"/>`;
+  const mouth = mood === "oops"
+    ? `<path d="M52 83q8-5 16 0" stroke="#4A3328" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 46q4 7 0 10q-4-3 0-10z" fill="#8EC9E8"/>`
+    : `<path d="M60 77q-5 8-12 3M60 77q5 8 12 3" stroke="#4A3328" stroke-width="3" stroke-linecap="round" fill="none"/>`;
+  const extra = mood === "cheer" ? `<path d="M100 22l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" fill="#F2B63D" stroke="#4A3328" stroke-width="2" stroke-linejoin="round"/>` : "";
+  return `<svg viewBox="0 0 120 120" role="img" aria-label="畫家貓貓" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 54L27 20l26 18z" fill="#FFF6EA" stroke="#4A3328" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M98 54L93 20L67 38z" fill="#FFF6EA" stroke="#4A3328" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M30 44l-1-14 11 8z" fill="#F7B6A8"/><path d="M90 44l1-14-11 8z" fill="#F7B6A8"/>
+    <ellipse cx="60" cy="72" rx="42" ry="34" fill="#FFF6EA" stroke="#4A3328" stroke-width="3"/>
+    <path d="M22 62q2-16 16-18q6 16-4 30q-10-2-12-12z" fill="#E3A35E" opacity=".85"/>
+    <path d="M98 66q-2-14-14-16q-4 14 4 26q8-2 10-10z" fill="#9A8574" opacity=".8"/>
+    <ellipse cx="60" cy="38" rx="32" ry="12" fill="#3F3B47" stroke="#4A3328" stroke-width="3" transform="rotate(-6 60 38)"/>
+    <circle cx="74" cy="25" r="4" fill="#3F3B47" stroke="#4A3328" stroke-width="2.5"/>
+    ${eyes}
+    <path d="M56 73h8l-4 4z" fill="#F29C93" stroke="#4A3328" stroke-width="2" stroke-linejoin="round"/>
+    ${mouth}
+    <ellipse cx="38" cy="79" rx="7" ry="4.5" fill="#F7A99B" opacity=".6"/><ellipse cx="82" cy="79" rx="7" ry="4.5" fill="#F7A99B" opacity=".6"/>
+    <path d="M24 74l-12-2M24 80l-12 4M96 74l12-2M96 80l12 4" stroke="#4A3328" stroke-width="2" stroke-linecap="round"/>
+    <path d="M92 108L108 74" stroke="#B9835A" stroke-width="5" stroke-linecap="round"/><path d="M107 77l5-10" stroke="#EE6A5B" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="92" cy="104" r="7" fill="#FFF6EA" stroke="#4A3328" stroke-width="3"/>
+    ${extra}${mood === "oops" ? "" : ""}
+  </svg>`;
+}
+
+document.getElementById("cat").innerHTML = catSvg("happy");
+</script>
+
+</body></html>
